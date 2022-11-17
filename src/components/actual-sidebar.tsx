@@ -39,7 +39,7 @@ const ActualSidebar = function(): JSX.Element {
       icon: <HiOutlineDeviceMobile className={iconClass} />
     },
   ];
-//active={router.pathname == "/marketplace"}
+
   return (
     <Sidebar>
       <Sidebar.Items>

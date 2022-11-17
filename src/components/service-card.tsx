@@ -5,13 +5,12 @@ import {
   Card,
   Label,
 } from "flowbite-react";
-import * as acceptBtco from '../../dist';
-//import * as acceptBtco from 'accept-btco';
+//import * as acceptBtco from '../../dist';
+import * as acceptBtco from 'accept-btco';
 import { v4 as uuidv4, v1 as uuidv1 } from 'uuid';
 import { api, API } from "../utils/api";
 import { ServicePayment } from "../utils/types";
 import { useTranslation } from "next-i18next";
-import { Trans } from "react-i18next";
 
 const ServiceCard = function(props: any): JSX.Element {
   const { t } = useTranslation("common");
@@ -44,7 +43,7 @@ const ServiceCard = function(props: any): JSX.Element {
     event.preventDefault()
 
     const session = acceptBtco.createSession({
-      apiHost: 'acceptbtco.bitcoinnano.org',
+      apiHost: process.env['ACCEPT_BTCO_API'] || '',
       debug: true
     })
 
@@ -54,7 +53,11 @@ const ServiceCard = function(props: any): JSX.Element {
         const amountNum: number = parseFloat(amount.replaceAll('.', '').replace(',', '.'))
         const response = await api<{ data: ServicePayment }>("/api/service-payments", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: "Bearer " + process.env['JWT_TOKEN'],
+          },
           body: JSON.stringify({
             data: {
               service: props.id,
@@ -65,7 +68,6 @@ const ServiceCard = function(props: any): JSX.Element {
             }
           })
         });
-        console.log(response.data)
         servicePayment = response.data
       }
     })
@@ -74,11 +76,14 @@ const ServiceCard = function(props: any): JSX.Element {
       console.log('paymentEnded');
       if (error) {
         console.error({ reason: error.reason });
-        console.log(servicePayment)
         if (servicePayment !== null) {
           const response = await api<{ data: ServicePayment }>(`/api/service-payments/${servicePayment.id}`, {
             method: "PUT",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: "Bearer " + process.env['JWT_TOKEN'],
+            },
             body: JSON.stringify({
               data: {
                 error: error.reason,
@@ -88,17 +93,19 @@ const ServiceCard = function(props: any): JSX.Element {
               }
             })
           });
-          console.log(response.data)
           servicePayment = response.data
         }
         return;
       }
 
-      console.log(payment)
       if (servicePayment !== undefined && servicePayment !== null) {
         const response = await api<{ data: ServicePayment }>(`/api/service-payments/${servicePayment.id}`, {
           method: "PUT",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: "Bearer " + process.env['JWT_TOKEN'],
+          },
           body: JSON.stringify({
             data: {
               amount_paid: payment?.amount,
@@ -110,7 +117,6 @@ const ServiceCard = function(props: any): JSX.Element {
             }
           })
         });
-        console.log(response.data)
         servicePayment = response.data
 
         if (servicePayment.attributes.merchant_notified) {
@@ -137,9 +143,7 @@ const ServiceCard = function(props: any): JSX.Element {
             {props.name}
           </h5>
           <p className="font-normal text-gray-700 dark:text-gray-400 h-24">
-            <Trans i18nKey="footer">
-              {props.description}
-            </Trans>
+            {props.description}
           </p>
           <div>
             <form id="paymentForm" onSubmit={onSubmit}>
@@ -160,9 +164,11 @@ const ServiceCard = function(props: any): JSX.Element {
                     BTCO
                   </span>
                 </div>
-                <Button outline gradientDuoTone="greenToBlue" type="submit">
-                  {t("payNow")}
-                </Button>
+                <div className="flex">
+                  <Button outline gradientDuoTone="greenToBlue" type="submit">
+                    {t("payNow")}
+                  </Button>
+                </div>
               </div>
             </form>
           </div>
