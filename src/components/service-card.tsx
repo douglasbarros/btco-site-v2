@@ -5,8 +5,8 @@ import {
   Card,
   Label,
 } from "flowbite-react";
-import * as acceptBtco from '../../dist';
-//import * as acceptBtco from 'accept-btco';
+//import * as acceptBtco from '../../dist';
+import * as acceptBtco from 'accept-btco';
 import { v4 as uuidv4, v1 as uuidv1 } from 'uuid';
 import { api, API } from "../utils/api";
 import { ServicePayment } from "../utils/types";
