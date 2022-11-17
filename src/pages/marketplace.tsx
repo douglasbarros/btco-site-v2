@@ -10,11 +10,17 @@ type Props = {
 }
 
 const Marketplace = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
-console.log(_props)
   const [services, setServices] = useState<Service[]>([]);
 
   useEffect(()=>{
-    api<{ data: Service[] }>(`/api/services?locale=${_props.locale}&filters[active][$eq]=true`).then(({ data }) => {
+    api<{ data: Service[] }>(`/api/services?locale=${_props.locale}&filters[active][$eq]=true`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Bearer " + process.env['JWT_TOKEN'],
+      },
+    }).then(({ data }) => {
       setServices(data)
     }).catch(error => {
       console.error(error)
