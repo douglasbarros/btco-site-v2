@@ -1,5 +1,5 @@
 // @ts-check
-const { i18n } = require('./next-i18next.config.js')
+const { i18n } = require("./next-i18next.config.js");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,10 +7,14 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   env: {
-    ACCEPT_BTCO_API: process.env.ACCEPT_BTCO_API || '',
-    API_PUBLIC_URL: process.env.API_PUBLIC_URL || '',
-    JWT_TOKEN: process.env.JWT_TOKEN || '',
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    JWT_TOKEN: process.env.JWT_TOKEN,
+    ACCEPT_BTCO_API: process.env.ACCEPT_BTCO_API,
   },
-}
+  images: {
+    domains: ["localhost", "res.cloudinary.com"],
+    imageSizes: [24, 64, 300],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
