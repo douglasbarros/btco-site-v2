@@ -1,11 +1,10 @@
-import React from 'react';
-import { useRouter } from "next/router";
 import { Button, DarkThemeToggle, Navbar } from "flowbite-react";
-import { FC } from "react";
-import { useSidebarContext } from "../context/SidebarContext";
-import Logo from './logo';
-import { IoIosRocket } from 'react-icons/io';
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import { FC } from "react";
+import { IoIosRocket } from "react-icons/io";
+import { useSidebarContext } from "../context/SidebarContext";
+import Logo from "./logo";
 
 const Header: FC<Record<string, never>> = function () {
   const { t } = useTranslation("common");
@@ -65,14 +64,28 @@ const Header: FC<Record<string, never>> = function () {
           <Logo />
         </Navbar.Brand>
         <div className="flex md:order-2">
-          <Button outline gradientDuoTone="purpleToPink" onClick={() => window.open("https://presales.bitcoinnano.org", "_blank", "noopener,noreferrer")}>
+          <Button
+            outline
+            gradientDuoTone="purpleToPink"
+            onClick={() =>
+              window.open(
+                "https://presales.bitcoinnano.org",
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
+          >
             <IoIosRocket className="mr-2" />
             {t("presales")}
           </Button>
           {/*<Navbar.Toggle />*/}
           <DarkThemeToggle />
           <div className="ml-4">
-            <select className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-800" onChange={handleLocaleChange} value={router.locale}>
+            <select
+              className="border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900"
+              onChange={handleLocaleChange}
+              value={router.locale}
+            >
               <option value="en">🇺🇸</option>
               <option value="pt-BR">🇧🇷</option>
             </select>

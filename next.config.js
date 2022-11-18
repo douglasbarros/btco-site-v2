@@ -7,8 +7,11 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   env: {
+    // @ts-ignore
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    // @ts-ignore
     JWT_TOKEN: process.env.JWT_TOKEN,
+    // @ts-ignore
     ACCEPT_BTCO_API: process.env.ACCEPT_BTCO_API,
   },
   images: {
