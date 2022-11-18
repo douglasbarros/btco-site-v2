@@ -3,54 +3,54 @@
 @tailwind utilities;
 
 .dark .dark\:svg-store {
-    fill: var(--store-color-dark);
+  fill: var(--store-color-dark);
 }
 
 .dark .dark\:letters-logo path {
-    fill: #fff;
+  fill: #fff;
 }
 
 .image-blockchain {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .grow2 {
-    transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 
 .button-bg {
-    background-image: none;
-    background-color: #17b790;
-    border-radius: 0.4rem;
-    box-shadow: 0rem 0.3rem 0.7rem rgb(0 0 0 / 30%);
-    transition: 0.2s ease-in-out;
+  background-image: none;
+  background-color: #17b790;
+  border-radius: 0.4rem;
+  box-shadow: 0rem 0.3rem 0.7rem rgb(0 0 0 / 30%);
+  transition: 0.2s ease-in-out;
 }
 
 .bubble-bg {
-    background-image: none;
-    background-color: #212124;
-    border-radius: 0.75rem;
-    box-shadow: 0rem 0.7rem 1rem rgb(0 0 0 / 30%);
-    transition: 0.2s ease-in-out;
+  background-image: none;
+  background-color: #212124;
+  border-radius: 0.75rem;
+  box-shadow: 0rem 0.7rem 1rem rgb(0 0 0 / 30%);
+  transition: 0.2s ease-in-out;
 }
 
-.bubble-bg:hover{
-    box-shadow: 0rem 0.3rem 1rem #17b79091;
+.bubble-bg:hover {
+  box-shadow: 0rem 0.3rem 1rem #17b79091;
 }
 
 .grow-2 {
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 
 .grow-2:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
