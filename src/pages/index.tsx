@@ -1,10 +1,9 @@
-import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import type { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import PrincipalImage from "../components/principal-image";
 
-// eslint-disable-next-line no-unused-vars
-const HomePage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const HomePage = () => {
   const { t } = useTranslation("common");
   return (
     <>

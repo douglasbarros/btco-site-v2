@@ -1,14 +1,13 @@
 import copy from "copy-to-clipboard";
 import { Button } from "flowbite-react";
-import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import type { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import { FaRegCopy } from "react-icons/fa";
 import { HiCheck } from "react-icons/hi";
 import { toast } from "react-toastify";
 
-// eslint-disable-next-line no-unused-vars
-const Apikeys = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Apikeys = () => {
   const router = useRouter();
   const { serviceName, hash, hashPair1, hashPair2 } = router.query;
 

@@ -1,14 +1,15 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { Button, Card, Label } from "flowbite-react";
 import { useRouter } from "next/router";
-const baseURL = process.env.NODE_ENV == "development" ? API : "";
+import { useState } from "react";
 //import * as acceptBtco from '../../dist';
 import * as acceptBtco from "accept-btco";
 import { useTranslation } from "next-i18next";
-import { useState } from "react";
 import { v1 as uuidv1, v4 as uuidv4 } from "uuid";
 import { api, API } from "../utils/api";
 import { ServicePayment } from "../utils/types";
+
+const baseURL = process.env.NODE_ENV == "development" ? API : "";
 
 const ServiceCard = function (props: any): JSX.Element {
   const { t } = useTranslation("common");
@@ -187,10 +188,10 @@ const ServiceCard = function (props: any): JSX.Element {
                     value={amount}
                     onChange={maskAmount}
                     placeholder="0.000"
-                    className="block rounded-l-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    className="block border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 rounded-l-lg p-2.5 text-sm"
                     required
                   ></input>
-                  <span className="inline-flex items-center rounded-r-lg border border-r-0 border-gray-300 bg-gray-200 px-2 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-600 dark:text-gray-400">
+                  <span className="inline-flex items-center px-2 text-sm text-gray-900 bg-gray-200 rounded-r-lg border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                     BTCO
                   </span>
                 </div>

@@ -57,12 +57,12 @@ const ActualSidebar = function (): JSX.Element {
                 key={title}
               >
                 <Link href={href}>
-                  <a
-                    className={`flex cursor-pointer rounded p-2 text-lg font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700`}
+                  <span
+                    className={`flex p-2 text-lg font-normal text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 cursor-pointer`}
                   >
                     {icon}
                     {title}
-                  </a>
+                  </span>
                 </Link>
               </li>
             ))}
