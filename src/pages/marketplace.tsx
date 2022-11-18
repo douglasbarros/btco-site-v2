@@ -32,7 +32,7 @@ const Marketplace = (
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [_props.locale]);
 
   const listServices = services.map((service: Service) => {
     return (
