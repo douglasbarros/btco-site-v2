@@ -63,7 +63,7 @@ const Header: FC<Record<string, never>> = function () {
         <Navbar.Brand href="/">
           <Logo />
         </Navbar.Brand>
-        <div className="flex md:order-2">
+        <div className="flex md:order-2 gap-2">
           <Button
             outline
             gradientDuoTone="purpleToPink"
@@ -80,7 +80,7 @@ const Header: FC<Record<string, never>> = function () {
           </Button>
           {/*<Navbar.Toggle />*/}
           <DarkThemeToggle />
-          <div className="ml-4">
+          <div>
             <select
               className="border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900"
               onChange={handleLocaleChange}

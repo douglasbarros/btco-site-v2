@@ -180,7 +180,7 @@ const ServiceCard = function (props: any): JSX.Element {
                     )} / ${amountInDays} ${t("days")})`}
                 </Label>
               </div>
-              <div className="inline-flex w-full gap-2">
+              <div className="inline-flex w-full gap-1">
                 <div className="flex">
                   <input
                     type="text"
