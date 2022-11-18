@@ -1,4 +1,4 @@
-import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import type { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Container from "../components/container";
@@ -17,7 +17,7 @@ const rogerio = "/img/team/rogerio.webp";
 const talmiro = "/img/team/talmiro.webp";
 const willian = "/img/team/willian.webp";
 
-const Members = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Members = () => {
   const { t } = useTranslation("common");
   return (
     <>

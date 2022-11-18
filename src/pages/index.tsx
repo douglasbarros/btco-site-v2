@@ -1,9 +1,9 @@
-import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import type { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import PrincipalImage from "../components/principal-image";
 
-const HomePage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const HomePage = () => {
   const { t } = useTranslation("common");
   return (
     <>

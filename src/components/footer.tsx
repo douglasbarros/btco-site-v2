@@ -14,7 +14,10 @@ const Footer: FC<Record<string, never>> = function () {
             <div>
               {" "}
               <Link href="/">
-                <a className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
+                <a
+                  className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
+                  href="#"
+                >
                   <span>
                     <Logo />
                   </span>
@@ -35,34 +38,34 @@ const Footer: FC<Record<string, never>> = function () {
               <a
                 href="https://twitter.com/BitcoinNanoCC"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 <span className="sr-only">Twitter</span>
-                <Twitter />
+                <Twitter size={24} />
               </a>
               <a
                 href="https://github.com/BitcoinNanoLabs/btco-wallet-flutter"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 <span className="sr-only">GitHub</span>
-                <GitHub />
+                <GitHub size={24} />
               </a>
               <a
                 href="https://instagram.com/bitcoinnano/"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 <span className="sr-only">Instagram</span>
-                <Instagram />
+                <Instagram size={24} />
               </a>
               <a
                 href="https://www.linkedin.com/company/bitcoin-nano/"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 <span className="sr-only">Linkedin</span>
-                <Linkedin />
+                <Linkedin size={24} />
               </a>
             </div>
           </div>

@@ -1,9 +1,9 @@
-import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import type { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
 
-const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Infinitum = () => {
   const { t } = useTranslation("common");
   return (
     <>
@@ -22,18 +22,21 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                   src="/img/infinitum/hero-text-v2.svg"
                   width={346}
                   height={76}
+                  alt="Bitcoin Nano's Official Mobile Wallet"
                 />
                 <div className="flex flex-row justify-center columns-2 gap-12">
                   <div className="button-bg w-36 grow-2">
                     <a
                       href="https://apps.apple.com/br/app/infinitum-wallet/id1613978672"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <Image
                         className="w-95"
                         src="/img/infinitum/button-appstore-v2.svg"
                         width={141}
                         height={42}
+                        alt="Appstore"
                       />
                     </a>
                   </div>
@@ -41,12 +44,14 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                     <a
                       href="https://play.google.com/store/apps/details?id=com.bitcoinnano.infinitum"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <Image
                         className="w-95"
                         src="/img/infinitum/button-playstore-v2.svg"
                         width={141}
                         height={42}
+                        alt="Playstore"
                       />
                     </a>
                   </div>
@@ -57,6 +62,7 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                   src="/img/infinitum/hero-phone-v2xx.svg"
                   width={562}
                   height={761}
+                  alt="Phone"
                 />
               </div>
             </div>
@@ -68,6 +74,7 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                   src="/img/infinitum/send-phone-v3.svg"
                   width={562}
                   height={761}
+                  alt="Phone"
                 />
               </div>
               <div className="px-12 text-center py-8 xl:pt-60">
@@ -77,6 +84,7 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                     src="/img/infinitum/send-bubble-v2.svg"
                     width={325}
                     height={100}
+                    alt="Send Bitcoin Nano"
                   />
                 </div>
               </div>
@@ -91,6 +99,7 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                     src="/img/infinitum/receive-bubble-v2.svg"
                     width={325}
                     height={100}
+                    alt="Send Bitcoin Nano"
                   />
                 </div>
               </div>
@@ -99,6 +108,7 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                   src="/img/infinitum/receive-phone-v3.png"
                   width={562}
                   height={761}
+                  alt="Phone"
                 />
               </div>
             </div>
@@ -110,6 +120,7 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                   src="/img/infinitum/contacts-phone-v3.png"
                   width={562}
                   height={761}
+                  alt="Phone"
                 />
               </div>
               <div className="px-12 text-center py-8 xl:pt-60">
@@ -119,6 +130,7 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                     src="/img/infinitum/contacts-bubble-v2.svg"
                     width={325}
                     height={100}
+                    alt="Add Contacts"
                   />
                 </div>
               </div>
