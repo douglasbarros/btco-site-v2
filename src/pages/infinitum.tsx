@@ -30,7 +30,8 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                   <div className="button-bg grow-2 w-36">
                     <a
                       href="https://apps.apple.com/br/app/infinitum-wallet/id1613978672"
-                      target="_blank" rel="noreferrer"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       <Image
                         className="w-95"
@@ -43,7 +44,8 @@ const Infinitum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                   <div className="button-bg grow-2 w-36">
                     <a
                       href="https://play.google.com/store/apps/details?id=com.bitcoinnano.infinitum"
-                      target="_blank" rel="noreferrer"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       <Image
                         className="w-95"
