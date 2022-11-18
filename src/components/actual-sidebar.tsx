@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Button } from "flowbite-react";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
@@ -50,7 +51,7 @@ const ActualSidebar = function (): JSX.Element {
               <li
                 className={
                   router.pathname == href
-                    ? "rounded bg-gray-100 dark:bg-gray-700 m-2"
+                    ? "m-2 rounded bg-gray-100 dark:bg-gray-700"
                     : "m-2"
                 }
                 key={title}
@@ -66,7 +67,7 @@ const ActualSidebar = function (): JSX.Element {
               </li>
             ))}
           </ul>
-          <div className="mt-4 float-left">
+          <div className="float-left mt-4">
             <Button
               outline
               gradientDuoTone="purpleToPink"

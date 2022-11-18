@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Card } from "flowbite-react";
 
 export default function Member(props: any) {

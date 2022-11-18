@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable tailwindcss/no-custom-classname */
 import type { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -16,7 +18,7 @@ const Infinitum = () => {
           </header>
           <div className="flex flex-wrap">
             <div className="columns-1 xl:columns-2">
-              <div className="px-12 text-center py-8 xl:pt-60">
+              <div className="px-12 py-8 text-center xl:pt-60">
                 <Image
                   className="w-100"
                   src="/img/infinitum/hero-text-v2.svg"

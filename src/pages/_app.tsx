@@ -30,7 +30,7 @@ const App = ({ Component, pageProps }: AppProps) => (
       <SidebarProvider>
         <Header {...pageProps} />
         <div className="flex dark:bg-gray-900">
-          <main className="order-2 mx-4 mt-4 mb-4 flex-[1_0_16rem]">
+          <main className="order-2 m-4 flex-[1_0_16rem]">
             <Component {...pageProps} />
           </main>
           <div className="order-1">

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useTranslation } from "next-i18next";
 import { FC } from "react";
 import Container from "./container";
@@ -8,9 +10,9 @@ type ImageProps = { size?: number };
 const Footer: FC<Record<string, never>> = function () {
   const { t } = useTranslation("common");
   return (
-    <div className="relative dark:bg-gray-900 m-0 p-0">
+    <div className="relative m-0 p-0 dark:bg-gray-900">
       <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto lg:grid-cols-5">
+        <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-10 pt-10 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div>
               {" "}
@@ -23,18 +25,18 @@ const Footer: FC<Record<string, never>> = function () {
           </div>
 
           <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0"></div>
+            <div className="-mt-2 -ml-3 flex w-full flex-wrap lg:ml-0"></div>
           </div>
           <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0"></div>
+            <div className="-mt-2 -ml-3 flex w-full flex-wrap lg:ml-0"></div>
           </div>
           <div className="text-gray-600 dark:text-gray-400">
             <div>{t("followUs")}</div>
-            <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
+            <div className="mt-5 flex space-x-5 text-gray-400 dark:text-gray-500">
               <a
                 href="https://twitter.com/BitcoinNanoCC"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <span className="sr-only">Twitter</span>
                 <Twitter />
@@ -42,7 +44,7 @@ const Footer: FC<Record<string, never>> = function () {
               <a
                 href="https://github.com/BitcoinNanoLabs/btco-wallet-flutter"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <span className="sr-only">GitHub</span>
                 <GitHub />
@@ -50,7 +52,7 @@ const Footer: FC<Record<string, never>> = function () {
               <a
                 href="https://instagram.com/bitcoinnano/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <span className="sr-only">Instagram</span>
                 <Instagram />
@@ -58,7 +60,7 @@ const Footer: FC<Record<string, never>> = function () {
               <a
                 href="https://www.linkedin.com/company/bitcoin-nano/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <span className="sr-only">Linkedin</span>
                 <Linkedin />
@@ -67,7 +69,7 @@ const Footer: FC<Record<string, never>> = function () {
           </div>
         </div>
 
-        <div className="py-5 text-sm text-center text-gray-600 dark:text-gray-400">
+        <div className="py-5 text-center text-sm text-gray-600 dark:text-gray-400">
           Copyright © {new Date().getFullYear()}. Bitcoinnano. {t("allRights")}
         </div>
       </Container>

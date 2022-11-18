@@ -82,7 +82,7 @@ const Header: FC<Record<string, never>> = function () {
           <DarkThemeToggle />
           <div className="ml-4">
             <select
-              className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-800"
+              className="border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900"
               onChange={handleLocaleChange}
               value={router.locale}
             >

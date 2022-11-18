@@ -7,9 +7,16 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   env: {
-    ACCEPT_BTCO_API: process.env.ACCEPT_BTCO_API || "",
-    API_PUBLIC_URL: process.env.API_PUBLIC_URL || "",
-    JWT_TOKEN: process.env.JWT_TOKEN || "",
+    // @ts-ignore
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    // @ts-ignore
+    JWT_TOKEN: process.env.JWT_TOKEN,
+    // @ts-ignore
+    ACCEPT_BTCO_API: process.env.ACCEPT_BTCO_API,
+  },
+  images: {
+    domains: ["localhost", "res.cloudinary.com"],
+    imageSizes: [24, 64, 300],
   },
 };
 

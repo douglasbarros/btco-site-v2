@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import { Button, Card, Label } from "flowbite-react";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -8,6 +9,8 @@ import { v1 as uuidv1, v4 as uuidv4 } from "uuid";
 import { api, API } from "../utils/api";
 import { ServicePayment } from "../utils/types";
 
+const baseURL = process.env.NODE_ENV == "development" ? API : "";
+
 const ServiceCard = function (props: any): JSX.Element {
   const { t } = useTranslation("common");
   const router = useRouter();
@@ -16,7 +19,6 @@ const ServiceCard = function (props: any): JSX.Element {
   const [amountInHours, setAmountInHours] = useState("");
   const [amountInDays, setAmountInDays] = useState("");
   let servicePayment: ServicePayment | null = null;
-  const baseURL = process.env.NODE_ENV == "development" ? API : "";
 
   const maskAmount = (event: any) => {
     const value = event.target.value;
@@ -164,7 +166,7 @@ const ServiceCard = function (props: any): JSX.Element {
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {props.name}
           </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400 h-24">
+          <p className="h-24 font-normal text-gray-700 dark:text-gray-400">
             {props.description}
           </p>
           <div>
@@ -178,7 +180,7 @@ const ServiceCard = function (props: any): JSX.Element {
                     )} / ${amountInDays} ${t("days")})`}
                 </Label>
               </div>
-              <div className="inline-flex gap-2 w-full">
+              <div className="inline-flex w-full gap-2">
                 <div className="flex">
                   <input
                     type="text"

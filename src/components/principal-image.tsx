@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable prettier/prettier */
+
 export default function PrincipalImage() {
   return (
     <svg
