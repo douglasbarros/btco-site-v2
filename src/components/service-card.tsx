@@ -1,7 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { Button, Card, Label } from "flowbite-react";
 import { useRouter } from "next/router";
-
+const baseURL = process.env.NODE_ENV == "development" ? API : "";
 //import * as acceptBtco from '../../dist';
 import * as acceptBtco from "accept-btco";
 import { useTranslation } from "next-i18next";
@@ -160,7 +160,7 @@ const ServiceCard = function (props: any): JSX.Element {
 
   return (
     <div className="max-w-sm">
-      <Card imgAlt={props.description} imgSrc={API + props.image}>
+      <Card imgAlt={props.description} imgSrc={baseURL + props.image}>
         <div className="h-200">
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {props.name}
