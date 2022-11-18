@@ -1,5 +1,4 @@
 import { useTranslation } from "next-i18next";
-import Link from "next/link";
 import { FC } from "react";
 import Container from "./container";
 import Logo from "./logo";
@@ -15,16 +14,11 @@ const Footer: FC<Record<string, never>> = function () {
           <div className="lg:col-span-2">
             <div>
               {" "}
-              <Link href="/">
-                <a
-                  className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
-                  href="/#"
-                >
-                  <span>
-                    <Logo />
-                  </span>
-                </a>
-              </Link>
+              <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
+                <span>
+                  <Logo />
+                </span>
+              </span>
             </div>
           </div>
 
