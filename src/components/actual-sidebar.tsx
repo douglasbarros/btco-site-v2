@@ -67,7 +67,7 @@ const ActualSidebar = function (): JSX.Element {
               </li>
             ))}
           </ul>
-          <div className="float-left mt-4">
+          <div className="float-left mt-4 ml-2">
             <Button
               outline
               gradientDuoTone="purpleToPink"
