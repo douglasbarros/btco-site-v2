@@ -1,4 +1,3 @@
-
 export type ServicePayment = {
   id: number;
   attributes: {
@@ -13,8 +12,8 @@ export type ServicePayment = {
     destination_account: string;
     merchant_notified: boolean;
     token: string;
-  }
-}
+  };
+};
 
 export type Service = {
   id: number;
@@ -24,5 +23,5 @@ export type Service = {
     price_per_hour: number;
     description: string;
     image: string;
-  }
-}
+  };
+};
