@@ -13,7 +13,7 @@ const Apikeys = () => {
 
   const handleCopyKeys = () => {
     copy(
-      `API Key: ${hash} | Pair Key 1: ${hashPair1} | Pair Key 2: ${hashPair2}`
+      `APP ID: ${hash} | Pair Key 1: ${hashPair1} | Pair Key 2: ${hashPair2}`
     );
     toast.success("Keys copied successfully!");
   };
@@ -35,7 +35,7 @@ const Apikeys = () => {
               <div className="flex w-full flex-col gap-4">
                 <div className="ml-3 text-sm font-normal">
                   <span className="font-bold text-gray-700 dark:text-gray-400">
-                    API Key:{" "}
+                    APP ID:{" "}
                   </span>
                   {hash}
                 </div>
