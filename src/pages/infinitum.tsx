@@ -26,8 +26,8 @@ const Infinitum = () => {
                   height={76}
                   alt="Bitcoin Nano's Official Mobile Wallet"
                 />
-                <div className="flex flex-row justify-center columns-2 gap-12">
-                  <div className="button-bg w-36 grow-2">
+                <div className="flex columns-2 flex-row justify-center gap-12">
+                  <div className="button-bg grow-2 w-36">
                     <a
                       href="https://apps.apple.com/br/app/infinitum-wallet/id1613978672"
                       target="_blank"
@@ -42,7 +42,7 @@ const Infinitum = () => {
                       />
                     </a>
                   </div>
-                  <div className="button-bg w-36 grow-2">
+                  <div className="button-bg grow-2 w-36">
                     <a
                       href="https://play.google.com/store/apps/details?id=com.bitcoinnano.infinitum"
                       target="_blank"
@@ -79,7 +79,7 @@ const Infinitum = () => {
                   alt="Phone"
                 />
               </div>
-              <div className="px-12 text-center py-8 xl:pt-60">
+              <div className="px-12 py-8 text-center xl:pt-60">
                 <div className="bubble-bg grow-2">
                   <Image
                     className="w-100"
@@ -94,7 +94,7 @@ const Infinitum = () => {
           </div>
           <div className="flex flex-wrap">
             <div className="columns-1 xl:columns-2">
-              <div className="px-12 text-center py-8 xl:pt-60">
+              <div className="px-12 py-8 text-center xl:pt-60">
                 <div className="bubble-bg grow-2">
                   <Image
                     className="w-100"
@@ -125,7 +125,7 @@ const Infinitum = () => {
                   alt="Phone"
                 />
               </div>
-              <div className="px-12 text-center py-8 xl:pt-60">
+              <div className="px-12 py-8 text-center xl:pt-60">
                 <div className="bubble-bg grow-2">
                   <Image
                     className="w-100"
