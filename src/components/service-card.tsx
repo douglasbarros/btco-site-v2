@@ -48,14 +48,18 @@ const ServiceCard = function (props: any): JSX.Element {
           maximumFractionDigits: 0,
         }
       );
-      setAmountInTime(time + " " + t("minute", { count: parseInt(time) }));
+      setAmountInTime(
+        time + " " + t("minute", { count: parseInt(time.replace(/\D/g, "")) })
+      );
     } else if (amountInHours < 24) {
       // show in hours
       const time = new Number(amountInHours).toLocaleString(i18n.language, {
         minimumFractionDigits: 0,
         maximumFractionDigits: 0,
       });
-      setAmountInTime(time + " " + t("hour", { count: parseInt(time) }));
+      setAmountInTime(
+        time + " " + t("hour", { count: parseInt(time.replace(/\D/g, "")) })
+      );
     } else {
       // show in days
       const time = new Number(amountInHours / 24).toLocaleString(
@@ -65,7 +69,9 @@ const ServiceCard = function (props: any): JSX.Element {
           maximumFractionDigits: 0,
         }
       );
-      setAmountInTime(time + " " + t("day", { count: parseInt(time) }));
+      setAmountInTime(
+        time + " " + t("day", { count: parseInt(time.replace(/\D/g, "")) })
+      );
     }
   };
 
