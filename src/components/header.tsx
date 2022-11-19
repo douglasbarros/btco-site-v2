@@ -63,7 +63,7 @@ const Header: FC<Record<string, never>> = function () {
         <Navbar.Brand href="/">
           <Logo />
         </Navbar.Brand>
-        <div className="flex md:order-2 gap-2">
+        <div className="flex gap-2 md:order-2">
           <Button
             outline
             gradientDuoTone="purpleToPink"
