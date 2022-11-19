@@ -14,6 +14,14 @@
   "amount": "Quantidade",
   "payNow": "Pagar",
   "time": "tempo",
-  "hours": "horas",
-  "days": "dias"
+  "minute_one": "minuto",
+  "minute_other": "minutos",
+  "hour_one": "hora",
+  "hour_other": "horas",
+  "day_one": "dia",
+  "day_other": "dias",
+  "month_one": "mês",
+  "month_other": "meses",
+  "year_one": "ano",
+  "year_other": "anos"
 }

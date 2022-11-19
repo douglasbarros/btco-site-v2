@@ -12,36 +12,61 @@ import { ServicePayment } from "../utils/types";
 const baseURL = process.env.NODE_ENV == "development" ? API : "";
 
 const ServiceCard = function (props: any): JSX.Element {
-  const { t } = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
   const router = useRouter();
 
   const [amount, setAmount] = useState("");
-  const [amountInHours, setAmountInHours] = useState("");
-  const [amountInDays, setAmountInDays] = useState("");
+  const [amountInTime, setAmountInTime] = useState("");
   let servicePayment: ServicePayment | null = null;
+
+  const defineAmount = (days: number) => {
+    const numBTCO = days * 24 * props.price_per_hour;
+    const strBTCO = numBTCO.toLocaleString(i18n.language, {
+      minimumFractionDigits: 3,
+      maximumFractionDigits: 3,
+    });
+    maskAmount({ target: { value: strBTCO } });
+  };
 
   const maskAmount = (event: any) => {
     const value = event.target.value;
     if (value.length > 15) return;
     const num = Number(value.replace(/\D/g, "")) / 1000;
     setAmount(
-      num.toLocaleString("pt", {
+      num.toLocaleString(i18n.language, {
         minimumFractionDigits: 3,
         maximumFractionDigits: 3,
       })
     );
-    setAmountInHours(
-      new Number(num / props.price_per_hour).toLocaleString("pt", {
-        minimumFractionDigits: 3,
-        maximumFractionDigits: 3,
-      })
-    );
-    setAmountInDays(
-      new Number(num / props.price_per_hour / 24).toLocaleString("pt", {
-        minimumFractionDigits: 3,
-        maximumFractionDigits: 3,
-      })
-    );
+    const amountInHours = num / props.price_per_hour;
+    if (amountInHours < 1) {
+      // show in minutes
+      const time = new Number(amountInHours * 60).toLocaleString(
+        i18n.language,
+        {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }
+      );
+      setAmountInTime(time + " " + t("minute", { count: parseInt(time) }));
+    } else if (amountInHours < 24) {
+      // show in hours
+      const time = new Number(amountInHours).toLocaleString(i18n.language, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+      setAmountInTime(time + " " + t("hour", { count: parseInt(time) }));
+    } else {
+      // show in days
+      const time = new Number(amountInHours / 24).toLocaleString(
+        i18n.language,
+        {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }
+      );
+      setAmountInTime(time + " " + t("day", { count: parseInt(time) }));
+    }
   };
 
   const onSubmit = async (event: any) => {
@@ -174,10 +199,7 @@ const ServiceCard = function (props: any): JSX.Element {
               <div className="mb-2 block h-10">
                 <Label htmlFor="amount">
                   {t("amount")}{" "}
-                  {amountInHours &&
-                    `(${t("time")}: ${amountInHours} ${t(
-                      "hours"
-                    )} / ${amountInDays} ${t("days")})`}
+                  {amountInTime && `(${t("time")}: ${amountInTime})`}
                 </Label>
               </div>
               <div className="inline-flex w-full gap-1">
@@ -199,6 +221,38 @@ const ServiceCard = function (props: any): JSX.Element {
                   <Button outline gradientDuoTone="greenToBlue" type="submit">
                     {t("payNow")}
                   </Button>
+                </div>
+              </div>
+              <div className="mt-1">
+                <div className="inline-flex rounded-md shadow-sm" role="group">
+                  <button
+                    type="button"
+                    onClick={() => defineAmount(30)}
+                    className="py-2 px-2 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+                  >
+                    {`30 ${t("day", { count: 30 })}`}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => defineAmount(90)}
+                    className="py-2 px-2 text-sm font-medium text-gray-900 bg-white border border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+                  >
+                    {`3 ${t("month", { count: 3 })}`}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => defineAmount(180)}
+                    className="py-2 px-2 text-sm font-medium text-gray-900 bg-white border border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+                  >
+                    {`6 ${t("month", { count: 6 })}`}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => defineAmount(365)}
+                    className="py-2 px-2 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+                  >
+                    {`1 ${t("year", { count: 1 })}`}
+                  </button>
                 </div>
               </div>
             </form>
