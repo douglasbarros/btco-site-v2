@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 const Apikeys = () => {
   const router = useRouter();
   const { serviceName, hash, hashPair1, hashPair2 } = router.query;
-
   const handleCopyKeys = () => {
     copy(
       `APP ID: ${hash} | Pair Key 1: ${hashPair1} | Pair Key 2: ${hashPair2}`
