@@ -5,16 +5,15 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import { FaRegCopy } from "react-icons/fa";
 import { HiCheck } from "react-icons/hi";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Apikeys = () => {
   const router = useRouter();
-  const { serviceName, hash, hashPair1, hashPair2 } = router.query;
+  const { serviceName, appId, zmqKey, zmqSecret } = router.query;
 
   const handleCopyKeys = () => {
-    copy(
-      `APP ID: ${hash} | Pair Key 1: ${hashPair1} | Pair Key 2: ${hashPair2}`
-    );
+    copy(`APP ID: ${appId} | Pair Key: ${zmqKey} | Pair Secret: ${zmqSecret}`);
     toast.success("Keys copied successfully!");
   };
 
@@ -37,22 +36,22 @@ const Apikeys = () => {
                   <span className="font-bold text-gray-700 dark:text-gray-400">
                     APP ID:{" "}
                   </span>
-                  {hash}
+                  {appId}
                 </div>
                 <div className="ml-3 text-sm font-normal">
                   <span className="font-bold text-gray-700 dark:text-gray-400">
-                    Pair Key 1:{" "}
+                    Pair Key:{" "}
                   </span>
-                  {hashPair1}
+                  {zmqKey}
                 </div>
                 <div className="ml-3 text-sm font-normal">
                   <span className="font-bold text-gray-700 dark:text-gray-400">
-                    Pair Key 2:{" "}
+                    Pair Secret:{" "}
                   </span>
-                  {hashPair2}
+                  {zmqSecret}
                 </div>
               </div>
-              <div className="flex w-24 flex-col gap-4">
+              <div className="flex flex-col gap-4">
                 <Button
                   size="sm"
                   outline
@@ -66,6 +65,7 @@ const Apikeys = () => {
           </div>
         </>
       </section>
+      <ToastContainer />
     </>
   );
 };

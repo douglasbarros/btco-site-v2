@@ -19,6 +19,14 @@ const ServiceCard = function (props: any): JSX.Element {
   const [amountInTime, setAmountInTime] = useState("");
   let servicePayment: ServicePayment | null = null;
 
+  const getAmountFloat = () => {
+    let amountNum: number = parseFloat(amount.replaceAll(",", ""));
+    if (i18n.language == "pt-BR") {
+      amountNum = parseFloat(amount.replaceAll(".", "").replace(",", "."));
+    }
+    return amountNum;
+  };
+
   const defineAmount = (days: number) => {
     const numBTCO = days * 24 * props.price_per_hour;
     const strBTCO = numBTCO.toLocaleString(i18n.language, {
@@ -86,9 +94,7 @@ const ServiceCard = function (props: any): JSX.Element {
     session.on("start", async () => {
       console.log("paymentStarted");
       if (amount !== null) {
-        const amountNum: number = parseFloat(
-          amount.replaceAll(".", "").replace(",", ".")
-        );
+        const amountNum = getAmountFloat();
         const response = await api<{ data: ServicePayment }>(
           "/api/service-payments",
           {
@@ -102,7 +108,7 @@ const ServiceCard = function (props: any): JSX.Element {
               data: {
                 service: props.id,
                 date_ini: new Date(),
-                hash: uuidv4() + "/" + uuidv1(),
+                app_id: uuidv4() + "/" + uuidv1(),
                 amount_hours: amountNum
                   ? new Number(amountNum / props.price_per_hour).toFixed(15)
                   : null,
@@ -174,7 +180,9 @@ const ServiceCard = function (props: any): JSX.Element {
               pathname: "/api-keys",
               query: {
                 serviceName: props.name,
-                hash: servicePayment.attributes.hash,
+                appId: servicePayment.attributes.app_id,
+                zmqKey: servicePayment.attributes.zmq_key,
+                zmqSecret: servicePayment.attributes.zmq_secret,
               },
             },
             "/api-keys"
@@ -184,7 +192,7 @@ const ServiceCard = function (props: any): JSX.Element {
     });
 
     session.createPayment({
-      amount: amount.replaceAll(".", "").replace(",", "."),
+      amount: getAmountFloat().toString(),
       currency: "BTCO",
       state: uuidv4(),
     });

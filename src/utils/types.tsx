@@ -2,7 +2,9 @@ export type ServicePayment = {
   id: number;
   attributes: {
     date_ini: Date;
-    hash: string;
+    app_id: string;
+    zmq_key: string;
+    zmq_secret: string;
     amount_hours: number;
     amount_btco: number;
     amount_paid: number;

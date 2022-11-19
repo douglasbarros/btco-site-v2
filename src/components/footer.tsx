@@ -13,7 +13,7 @@ const Footer: FC<Record<string, never>> = function () {
     <div className="relative m-0 p-0 dark:bg-gray-900">
       <Container>
         <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-10 pt-10 lg:grid-cols-5">
-          <div className="lg:col-span-2">
+          <div className="hidden lg:block lg:col-span-2">
             <div>
               {" "}
               <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
@@ -30,7 +30,7 @@ const Footer: FC<Record<string, never>> = function () {
           <div>
             <div className="-mt-2 -ml-3 flex w-full flex-wrap lg:ml-0"></div>
           </div>
-          <div className="text-gray-600 dark:text-gray-400">
+          <div className="text-gray-600 dark:text-gray-400 ml-4">
             <div>{t("followUs")}</div>
             <div className="mt-5 flex space-x-5 text-gray-400 dark:text-gray-500">
               <a
