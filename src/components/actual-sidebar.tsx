@@ -46,7 +46,7 @@ const ActualSidebar = function (): JSX.Element {
     <Sidebar>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <ul className="mt-14 lg:mt-2">
+          <ul className="mt-24 lg:mt-2">
             {menuItems.map(({ href, title, icon }) => (
               <li
                 className={
